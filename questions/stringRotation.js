@@ -8,11 +8,12 @@ const isEmpty = (str) => {
 
 const rotateString = (str, n, direction) => {
   if (isString(str) && !isEmpty(str)) {
+    n = n % str.length;
     if (direction === "left") {
-      console.log(str.slice(n, str.length) + str.slice(0, n));
+      return str.slice(n, str.length) + str.slice(0, n);
     } else if (direction === "right") {
       n = -n;
-      console.log(str.slice(n, str.length) + str.slice(0, n));
+      return str.slice(n, str.length) + str.slice(0, n);
     } else {
       throw new Error("Invalid Direction");
     }

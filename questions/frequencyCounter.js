@@ -5,7 +5,25 @@ Count the frequency of a vowels in a given string.
    in the string
 3. In case numbers are passed it shoul throw an error with message "Invalid Input"
 */
+const isString = (str) => {
+  return typeof str === typeof "";
+};
 
-const frequencyCounter = (str) => {};
+const isEmpty = (str) => {
+  return !str || 0 === str.length || !str.trim();
+};
+
+const frequencyCounter = (str) => {
+  vowelsFrequency = { a: 0, e: 0, i: 0, o: 0, u: 0 };
+  if (isString(str)) {
+    for (i in str) {
+      let vowels = str[i].toLowerCase();
+      if ("aeiou".includes(vowels)) {
+        vowelsFrequency[vowels]++;
+      }
+    }
+  } else throw new Error("Invalid Input");
+  return vowelsFrequency;
+};
 
 module.exports = frequencyCounter;
